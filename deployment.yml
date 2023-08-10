@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-1
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+    app: potato
+  template:
+    metadata:
+      labels:
+        app: potato
+    spec:
+      containers:
+        - name: cont1
+          image: shaikmustafa/dm
+          ports:
+            - containerPort: 80
